@@ -12,7 +12,7 @@
   <% end %>
 
   <%= f.label :home_player %>
-  <%= f.collection_select(:home_player_id, Player.all, :id, :name) %>
+  <%= f.collection_select :home_player_id, Player.all, :id, :name %>
 
   <%= f.label :home_team %>
   <%= f.text_field :home_team %>
@@ -21,7 +21,7 @@
   <%= f.text_field :home_score %>
 
   <%= f.label :away_player %>
-  <%= f.collection_select(:away_player_id, Player.all, :id, :name) %>
+  <%= f.collection_select :away_player_id, Player.all, :id, :name %>
 
   <%= f.label :away_team %>
   <%= f.text_field :away_team %>

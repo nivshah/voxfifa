@@ -15,6 +15,7 @@ class MatchesController < ApplicationController
 
   def create
     @match = Match.new(params[:match])
+    @match.reported_by = current_user
 
     respond_to do |format|
       if @match.save
