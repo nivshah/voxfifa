@@ -1,0 +1,17 @@
+<%= form_for(@player) do |f| %>
+  <% if @player.errors.any? %>
+  <div id="errorExplanation">
+    <h4><%= pluralize(@player.errors.count, "error") %> prohibited
+        this player from being saved:</h4>
+    <ul>
+    <% @player.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>

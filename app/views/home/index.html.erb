@@ -1,1 +1,30 @@
-hello you are home
+<h2>Standings</h2>
+<table width="50%">
+  <tr>
+    <th>Player</th>
+    <th>W</th>
+    <th>L</th>
+    <th>T</th>
+    <th>Pts</th>
+    <th>GS</th>
+    <th>GA</th>
+  </tr>
+</table>
+
+<h2>Recent Matches</h2>
+<table width="50%">
+  <tr>
+    <th>Home</th>
+    <th></th>
+    <th></th>
+    <th>Away</th>
+  </tr>
+  <% @matches.each do |match| %>
+  <tr>
+    <td><%= match.home_player.name %> (<%= match.home_team %>)</td>
+    <td><%= match.home_score %></td>
+    <td><%= match.away_score %></td>
+    <td><%= match.away_player.name %> (<%= match.away_team %>)</td>
+  </tr>
+  <% end %>
+</table>
