@@ -19,9 +19,9 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'bootstrap-sass'
 end
 
+gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'devise'
 
