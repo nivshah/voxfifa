@@ -7,7 +7,10 @@ class HomeController < ApplicationController
     end
 
     # sort by points descending
-    @standings.sort! { |a,b| b.points <=> a.points }
+    @standings.sort do |a,b|
+      comp = (b.points <=> a.points)
+      comp.zero? ? ((b.goals_scored - b.goals_allowed) <=> (a.goals_scored - a.goals_allowed)) : comp
+    end
 
     @matches = Match.all
   end
