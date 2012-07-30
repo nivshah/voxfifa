@@ -1,9 +1,21 @@
-<h2>Showing match</h2>
-
-<h3><%= @match.home_player.name %> (<%= @match.home_team %>)</h3>
-<h4><%= @match.home_score %></h4>
-<h4><%= @match.away_score %></h4>
-<h3><%= @match.away_player.name %> (<%= @match.away_team %>)</h3>
-<h3><%= @match.reported_by.email %></h3>
+<h2>Match</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Home</th>
+      <th>Score</th>
+      <th>Away</th>
+      <th>Reported By</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @match.home_player.name %> (<%= @match.home_team %>)</td>
+      <td><%= @match.home_score %> - <%= @match.away_score %></td>
+      <td><%= @match.away_player.name %> (<%= @match.away_team %>)</td>
+      <td><%= @match.reported_by.email %></td>
+    </tr>
+  </tbody>
+</table>
 <%= link_to 'Edit', edit_match_path(@match) %> | 
 <%= link_to 'Delete', @match, :confirm => 'Are you sure?', :method => :delete %>

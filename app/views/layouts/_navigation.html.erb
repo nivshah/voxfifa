@@ -2,15 +2,6 @@
 <ul class="nav">
   <% if user_signed_in? %>
     <li>
-    <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>        
-    </li>
-  <% else %>
-    <li>
-    <%= link_to('Login', new_user_session_path)  %>  
-    </li>
-  <% end %>
-  <% if user_signed_in? %>
-    <li>
       <%= link_to('Edit account', edit_user_registration_path) %>
     </li>
     <li>
@@ -25,10 +16,17 @@
     </li>
   <% end %>
 </ul>
-<% if user_signed_in? %>
 <ul class="nav pull-right">
-  <li class="navbar-text">
-    Logged in as <%= current_user.email %>
-  </li>
+  <% if user_signed_in? %>
+    <li class="navbar-text">
+      <%= current_user.email %>
+    </li>
+    <li>
+      <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>        
+    </li>
+  <% else %>
+    <li>
+      <%= link_to('Login', new_user_session_path)  %>  
+    </li>
+  <% end %>
 </ul>
-<% end %>

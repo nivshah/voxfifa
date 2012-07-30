@@ -1,4 +1,16 @@
-<h2>Showing player</h2>
-<h3><%= @player.name %></h3>
+<h2>Player</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @player.name %></td>
+    </tr>
+  </tbody>
+</table>
+
 <%= link_to 'Edit', edit_player_path(@player) %> | 
 <%= link_to 'Delete', @player, :confirm => 'Are you sure?', :method => :delete %>
