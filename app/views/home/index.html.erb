@@ -1,40 +1,47 @@
 <h2>Standings</h2>
-<table width="50%" class="table">
-  <tr>
-    <th>Player</th>
-    <th>W</th>
-    <th>L</th>
-    <th>T</th>
-    <th>Pts</th>
-    <th>GS</th>
-    <th>GA</th>
-  </tr>
-
-  <% @standings.each do |standing| %>
-  <tr>
-    <td><%= standing.player.name %></td>
-    <td><%= standing.wins %></td>
-    <td><%= standing.losses %></td>
-    <td><%= standing.ties %></td>
-    <td><%= standing.points %></td>
-    <td><%= standing.goals_scored %></td>
-    <td><%= standing.goals_allowed %></td>
-  </tr>
-  <% end %>
+<table width="50%" class="table table-striped">
+  <thead>
+    <tr>
+      <th>Player</th>
+      <th>W</th>
+      <th>L</th>
+      <th>T</th>
+      <th>Pts</th>
+      <th>GS</th>
+      <th>GA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @standings.each do |standing| %>
+    <tr>
+      <td><%= standing.player.name %></td>
+      <td><%= standing.wins %></td>
+      <td><%= standing.losses %></td>
+      <td><%= standing.ties %></td>
+      <td><%= standing.points %></td>
+      <td><%= standing.goals_scored %></td>
+      <td><%= standing.goals_allowed %></td>
+    </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <h2>Recent Matches</h2>
-<table width="50%" class="table">
-  <tr>
-    <th>Home</th>
-    <th>Score</th>
-    <th>Away</th>
-  </tr>
-  <% @matches.each do |match| %>
-  <tr>
-    <td><%= match.home_player.name %> (<%= match.home_team %>)</td>
-    <td><%= match.home_score %> - <%= match.away_score %></td>
-    <td><%= match.away_player.name %> (<%= match.away_team %>)</td>
-  </tr>
-  <% end %>
+<table width="50%" class="table table-striped">
+  <thead>
+    <tr>
+      <th>Home</th>
+      <th>Score</th>
+      <th>Away</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @matches.each do |match| %>
+    <tr>
+      <td><%= match.home_player.name %> (<%= match.home_team %>)</td>
+      <td><%= match.home_score %> - <%= match.away_score %></td>
+      <td><%= match.away_player.name %> (<%= match.away_team %>)</td>
+    </tr>
+    <% end %>
+  </tbody>
 </table>

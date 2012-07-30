@@ -1,25 +1,29 @@
 <h2>Matches</h2>
-<table width="50%" class="table">
-  <tr>
-    <th>Home</th>
-    <th>Score</th>
-    <th>Away</th>
-    <th></th>
-  </tr>
-  <% if @matches.count > 0 %>
-    <% @matches.each do |match| %>
+<table width="50%" class="table table-striped">
+  <thead>
     <tr>
-      <td><%= match.home_player.name %> (<%= match.home_team %>)</td>
-      <td><%= match.home_score %> - <%= match.away_score %></td>
-      <td><%= match.away_player.name %> (<%= match.away_team %>)</td>
-      <td><%= link_to 'Edit', edit_match_path(match) %></td>
+      <th>Home</th>
+      <th>Score</th>
+      <th>Away</th>
+      <th></th>
     </tr>
+  </thead>
+  <tbody>
+    <% if @matches.count > 0 %>
+      <% @matches.each do |match| %>
+      <tr>
+        <td><%= match.home_player.name %> (<%= match.home_team %>)</td>
+        <td><%= match.home_score %> - <%= match.away_score %></td>
+        <td><%= match.away_player.name %> (<%= match.away_team %>)</td>
+        <td><%= link_to 'Edit', edit_match_path(match) %></td>
+      </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td>NO MATCHES IN THE SYSTEM</td>
+      </tr>
     <% end %>
-  <% else %>
-    <tr>
-      <td>NO MATCHES IN THE SYSTEM</td>
-    </tr>
-  <% end %>
+  </tbody>
 </table>
 
 <%= link_to 'Add Match', new_match_path %>

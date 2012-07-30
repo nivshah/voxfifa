@@ -1,21 +1,25 @@
 <h2>Players</h2>
-<table width="50%" class="table">
-  <tr>
-    <th>Name</th>
-    <th></th>
-  </tr>
-  <% if @players.count > 0 %>
-    <% @players.each do |player| %>
+<table width="50%" class="table table-striped">
+  <thead>
     <tr>
-      <td><%= player.name %></td>
-      <td><%= link_to 'Edit', edit_player_path(player) %></td>
+      <th>Name</th>
+      <th></th>
     </tr>
+  </thead>
+  <tbody>
+    <% if @players.count > 0 %>
+      <% @players.each do |player| %>
+      <tr>
+        <td><%= player.name %></td>
+        <td><%= link_to 'Edit', edit_player_path(player) %></td>
+      </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td>NO PLAYERS IN THE SYSTEM</td>
+      </tr>
     <% end %>
-  <% else %>
-    <tr>
-      <td>NO PLAYERS IN THE SYSTEM</td>
-    </tr>
-  <% end %>
+  </tbody>
 </table>
 
 <%= link_to 'Add Player', new_player_path %>
