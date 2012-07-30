@@ -1,23 +1,23 @@
 <h2>Matches</h2>
-<table width="50%">
+<table width="50%" class="table">
   <tr>
     <th>Home</th>
-    <th></th>
-    <th></th>
+    <th>Score</th>
     <th>Away</th>
+    <th></th>
   </tr>
   <% if @matches.count > 0 %>
     <% @matches.each do |match| %>
     <tr>
-      <td align="center"><%= match.home_player.name %> (<%= match.home_team %>)</td>
-      <td align="center"><%= match.home_score %></td>
-      <td align="center"><%= match.away_score %></td>
-      <td align="center"><%= match.away_player.name %> (<%= match.away_team %>)</td>
+      <td><%= match.home_player.name %> (<%= match.home_team %>)</td>
+      <td><%= match.home_score %> - <%= match.away_score %></td>
+      <td><%= match.away_player.name %> (<%= match.away_team %>)</td>
+      <td><%= link_to 'Edit', edit_match_path(match) %></td>
     </tr>
     <% end %>
   <% else %>
     <tr>
-      <td align="center">NO MATCHES IN THE SYSTEM</td>
+      <td>NO MATCHES IN THE SYSTEM</td>
     </tr>
   <% end %>
 </table>
