@@ -29,6 +29,5 @@ production:
   encoding: utf8
   database: voxfifa_production
   pool: 5
-  username: root
+  username: voxfifa
   password:
-  socket: /tmp/mysql.sock
