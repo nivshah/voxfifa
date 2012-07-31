@@ -11,4 +11,11 @@ class Match < ActiveRecord::Base
   validates :away_team, :presence => true
   validates :home_score, :presence => true
   validates :away_score, :presence => true
+  validate :did_not_play_self
+
+  def did_not_play_self
+    if home_player == away_player
+      errors[:base] << "You cannot play yourself"
+    end
+  end
 end

@@ -1,14 +1,11 @@
 <%= form_for(@match) do |f| %>
   <% if @match.errors.any? %>
-  <div id="errorExplanation">
-    <h4><%= pluralize(@match.errors.count, "error") %> prohibited
-        this player from being saved:</h4>
-    <ul>
     <% @match.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+      <div class="alert alert-error">
+        <a class="close" data-dismiss="alert">×</a>  
+        <%= msg %>
+      </div>
     <% end %>
-    </ul>
-  </div>
   <% end %>
 
   <%= f.label :home_player %>
