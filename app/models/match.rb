@@ -13,6 +13,7 @@ class Match < ActiveRecord::Base
   validates :away_team, :presence => true
   validates :home_score, :presence => true
   validates :away_score, :presence => true
+  validates :game_date, :presence => true
   validate :did_not_play_self
 
   def did_not_play_self
