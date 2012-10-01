@@ -13,4 +13,6 @@
 </table>
 
 <%= link_to 'Edit', edit_player_path(@player) %> | 
-<%= link_to 'Delete', @player, :confirm => 'Are you sure?', :method => :delete %>
+<%= link_to 'Delete', @player, :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'Add', new_player_path %> |
+<%= link_to 'List', players_path %>
