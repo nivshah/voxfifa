@@ -3,7 +3,9 @@ class Match < ActiveRecord::Base
   belongs_to :away_player, :foreign_key => 'away_player_id', :class_name => 'Player'
   belongs_to :reported_by, :foreign_key => 'reported_by', :class_name => 'User'
 
-  attr_accessible :home_player_id, :home_team, :away_player_id, :away_team, :home_score, :away_score, :reported_by
+  attr_accessible :home_player_id, :home_team, :away_player_id, 
+    :away_team, :home_score, :away_score, :reported_by,
+    :game_date
 
   validates :home_player_id, :presence => true
   validates :away_player_id, :presence => true
