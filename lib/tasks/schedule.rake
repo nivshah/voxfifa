@@ -1,11 +1,13 @@
 namespace :schedule do
   desc "Generate full-season schedule"
   task :generate => :environment do
-    Player.all.combination(2) { |match|
-      if match[0].home_matches.count < 4
+    player_count = Player.count
+
+    Player.all.shuffle.combination(2) { |match|
+      if match[0].home_matches.count <= player_count / 2
         home_player = match[0]
         away_player = match[1]
-      elsif match[0].home_matches.count > 4
+      elsif match[0].home_matches.count > player_count / 2
         home_player = match[1]
         away_player = match[0]
       else
