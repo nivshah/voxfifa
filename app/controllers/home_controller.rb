@@ -12,6 +12,6 @@ class HomeController < ApplicationController
       comp.zero? ? ((b.goals_scored - b.goals_allowed) <=> (a.goals_scored - a.goals_allowed)) : comp
     end
 
-    @matches = Match.limit(10).order("created_at DESC")
+    @matches = Match.order("created_at DESC")
   end
 end

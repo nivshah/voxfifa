@@ -8,6 +8,7 @@ Voxfifa::Application.routes.draw do
   root :to => "home#index"
   resources :players
   resources :matches
+  match 'rules' => 'rules#show'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
