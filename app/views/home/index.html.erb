@@ -36,7 +36,27 @@
     </tr>
   </thead>
   <tbody>
-    <% @matches.each do |match| %>
+    <% @matches.where(:game_status => 'final').limit(5).each do |match| %>
+    <tr>
+      <td><%= match.home_player.name %> (<%= match.home_team %>)</td>
+      <td><%= match.home_score %> - <%= match.away_score %></td>
+      <td><%= match.away_player.name %> (<%= match.away_team %>)</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Upcoming Matches</h2>
+<table width="50%" class="table table-striped">
+  <thead>
+    <tr>
+      <th>Home</th>
+      <th>Score</th>
+      <th>Away</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @matches.where(:game_status => 'pre').limit(5).each do |match| %>
     <tr>
       <td><%= match.home_player.name %> (<%= match.home_team %>)</td>
       <td><%= match.home_score %> - <%= match.away_score %></td>

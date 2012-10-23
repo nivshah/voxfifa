@@ -4,10 +4,11 @@ class Match < ActiveRecord::Base
 
   attr_accessible :home_player_id, :home_team, :away_player_id, 
     :away_team, :home_score, :away_score, :reported_by,
-    :game_date
+    :game_date, :game_status
 
   validates :home_player_id, :presence => true
   validates :away_player_id, :presence => true
+  validates :game_status, :presence => true
   validate :did_not_play_self
 
   def did_not_play_self

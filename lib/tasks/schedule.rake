@@ -22,7 +22,8 @@ namespace :schedule do
 
       match = Match.new(
         :home_player_id => home_player.id,
-        :away_player_id => away_player.id
+        :away_player_id => away_player.id,
+        :game_status => 'pre'
       )
       match.save!
     }

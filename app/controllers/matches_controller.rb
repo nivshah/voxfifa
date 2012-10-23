@@ -15,7 +15,7 @@ class MatchesController < ApplicationController
 
   def create
     @match = Match.new(params[:match])
-
+    @match.game_status = 'pre'
     respond_to do |format|
       if @match.save
         format.html { redirect_to(@match,
@@ -40,7 +40,7 @@ class MatchesController < ApplicationController
 
   def update
     @match = Match.find(params[:id])
-
+    @match.game_status = 'final'
     respond_to do |format|
       if @match.update_attributes(params[:match])
         format.html  { redirect_to(@match,

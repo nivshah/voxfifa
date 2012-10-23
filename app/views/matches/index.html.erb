@@ -5,6 +5,7 @@
       <th>Home</th>
       <th>Score</th>
       <th>Away</th>
+      <th>Game Status</th>
       <th></th>
     </tr>
   </thead>
@@ -15,6 +16,7 @@
         <td><%= match.home_player.name %> (<%= match.home_team %>)</td>
         <td><%= match.home_score %> - <%= match.away_score %></td>
         <td><%= match.away_player.name %> (<%= match.away_team %>)</td>
+        <td><%= match.game_status %></td>
         <td><%= link_to 'Edit', edit_match_path(match) %></td>
       </tr>
       <% end %>

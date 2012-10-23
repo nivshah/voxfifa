@@ -5,7 +5,7 @@
       <th>Home</th>
       <th>Score</th>
       <th>Away</th>
-      <th>Reported By</th>
+      <th>Game Status</th>
     </tr>
   </thead>
   <tbody>
@@ -13,7 +13,7 @@
       <td><%= @match.home_player.name %> (<%= @match.home_team %>)</td>
       <td><%= @match.home_score %> - <%= @match.away_score %></td>
       <td><%= @match.away_player.name %> (<%= @match.away_team %>)</td>
-      <td><%= @match.reported_by.email %></td>
+      <td><%= @match.game_status %></td>
     </tr>
   </tbody>
 </table>
