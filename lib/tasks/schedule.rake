@@ -4,10 +4,10 @@ namespace :schedule do
     player_count = Player.count
 
     Player.all.shuffle.combination(2) { |match|
-      if match[0].home_matches.count <= (player_count / 2).floor
+      if match[0].home_matches.count < (player_count / 2).floor
         home_player = match[0]
         away_player = match[1]
-      elsif match[0].home_matches.count > (player_count / 2).floor
+      elsif match[0].home_matches.count == (player_count / 2).floor
         home_player = match[1]
         away_player = match[0]
       else
