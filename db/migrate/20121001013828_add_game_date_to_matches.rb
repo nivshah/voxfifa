@@ -4,6 +4,6 @@ class AddGameDateToMatches < ActiveRecord::Migration
   end
 
   def down
-    drop_column :matches, :game_date
+    remove_column :matches, :game_date
   end
 end

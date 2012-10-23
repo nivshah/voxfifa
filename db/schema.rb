@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121001013828) do
+ActiveRecord::Schema.define(:version => 20121023084452) do
 
   create_table "matches", :force => true do |t|
     t.datetime "created_at",     :null => false
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(:version => 20121001013828) do
     t.string   "away_team"
     t.integer  "home_score"
     t.integer  "away_score"
-    t.integer  "reported_by"
     t.datetime "game_date"
   end
 
