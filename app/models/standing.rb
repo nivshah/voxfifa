@@ -11,9 +11,11 @@ class Standing
   def wins
     win_count = 0
     player.all_matches.each do |match|
-      if (match.home_player_id == player.id && match.home_score > match.away_score) ||
-         (match.away_player_id == player.id && match.away_score > match.home_score)
-        win_count = win_count + 1
+      if match.home_score && match.away_score
+        if (match.home_player_id == player.id && match.home_score > match.away_score) ||
+           (match.away_player_id == player.id && match.away_score > match.home_score)
+          win_count = win_count + 1
+        end
       end
     end
 
@@ -23,9 +25,11 @@ class Standing
   def losses
     loss_count = 0
     player.all_matches.each do |match|
-      if (match.home_player_id == player.id && match.home_score < match.away_score) ||
-         (match.away_player_id == player.id && match.away_score < match.home_score)
-        loss_count = loss_count + 1
+      if match.home_score && match.away_score
+        if (match.home_player_id == player.id && match.home_score < match.away_score) ||
+           (match.away_player_id == player.id && match.away_score < match.home_score)
+          loss_count = loss_count + 1
+        end
       end
     end
 
@@ -35,8 +39,10 @@ class Standing
   def ties
     tie_count = 0
     player.all_matches.each do |match|
-      if match.home_score == match.away_score
-        tie_count = tie_count + 1
+      if match.home_score && match.away_score
+        if match.home_score == match.away_score
+          tie_count = tie_count + 1
+        end
       end
     end
 
@@ -50,10 +56,12 @@ class Standing
   def goals_scored
     goal_count = 0
     player.all_matches.each do |match|
-      if match.home_player_id == player.id
-        goal_count += match.home_score
-      elsif match.away_player_id == player.id
-        goal_count += match.away_score
+      if match.home_score && match.away_score
+        if match.home_player_id == player.id
+          goal_count += match.home_score
+        elsif match.away_player_id == player.id
+          goal_count += match.away_score
+        end
       end
     end
 
@@ -63,10 +71,12 @@ class Standing
   def goals_allowed
     goal_count = 0
     player.all_matches.each do |match|
-      if match.home_player_id == player.id
-        goal_count += match.away_score
-      elsif match.away_player_id == player.id
-        goal_count += match.home_score
+      if match.home_score && match.away_score
+        if match.home_player_id == player.id
+          goal_count += match.away_score
+        elsif match.away_player_id == player.id
+          goal_count += match.home_score
+        end
       end
     end
 

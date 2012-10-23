@@ -7,10 +7,10 @@ namespace :schedule do
     # Friday 4pm 6pm
 
     Player.all.combination(2) { |match|
-      if match[0].home_matches < match[1].home_matches
+      if match[0].home_matches.count < match[1].home_matches.count
         home_player = match[0]
         away_player = match[1]
-      elsif match[0].home_matches > match[1].home_matches
+      elsif match[0].home_matches.count > match[1].home_matches.count
         home_player = match[1]
         away_player = match[0]
       else
@@ -21,8 +21,8 @@ namespace :schedule do
       end
 
       match = Match.new(
-        :home_player => home_player,
-        :away_player => away_player
+        :home_player_id => home_player.id,
+        :away_player_id => away_player.id
       )
       match.save!
     }
