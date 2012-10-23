@@ -2,10 +2,10 @@ namespace :schedule do
   desc "Generate full-season schedule"
   task :generate => :environment do
     Player.all.combination(2) { |match|
-      if match[0].home_matches.count < match[1].home_matches.count
+      if match[0].home_matches.count < 4
         home_player = match[0]
         away_player = match[1]
-      elsif match[0].home_matches.count > match[1].home_matches.count
+      elsif match[0].home_matches.count > 4
         home_player = match[1]
         away_player = match[0]
       else
