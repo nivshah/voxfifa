@@ -36,7 +36,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @matches.where(:game_status => 'final').limit(5).each do |match| %>
+    <% @matches.where(:game_status => 'final').order("updated_at DESC").limit(5).each do |match| %>
     <tr>
       <td><%= match.home_player.name %> (<%= match.home_team %>)</td>
       <td><%= match.home_score %> - <%= match.away_score %></td>
